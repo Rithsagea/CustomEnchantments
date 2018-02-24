@@ -1,10 +1,9 @@
 package com.rithsagea.ce;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-
-import org.bukkit.inventory.ItemStack;
-
-import com.rithsagea.ce.datatypes.CustomEnchantment;
+import java.util.Set;
 
 public class Util {
 	
@@ -38,5 +37,14 @@ public class Util {
 			case "X": return 10;
 			default: return 0;
 		}
+	}
+	
+	public static List getValues(Map map) {
+		Object[] keys = map.keySet().toArray();
+		List<Object> values = new ArrayList<Object>();
+		for(Object key : keys) {
+			values.add(map.get(key));
+		}
+		return values;
 	}
 }
