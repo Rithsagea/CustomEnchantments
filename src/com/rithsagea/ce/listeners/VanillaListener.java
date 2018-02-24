@@ -2,6 +2,7 @@ package com.rithsagea.ce.listeners;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
@@ -10,7 +11,9 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 
-public class DamageListener implements Listener {
+import com.rithsagea.ce.datatypes.CustomEnchantment;
+
+public class VanillaListener implements Listener {
 	
 	@EventHandler
 	public void onEntityDamageEntity(EntityDamageByEntityEvent event) {
@@ -29,5 +32,9 @@ public class DamageListener implements Listener {
 		items.add(equipment.getItemInMainHand());
 		items.add(equipment.getItemInOffHand());
 		return (ItemStack[]) items.toArray();
+	}
+	
+	public static Map<CustomEnchantment, Integer> getEnchantments(ItemStack item) {
+		return null;
 	}
 }

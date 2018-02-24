@@ -55,6 +55,7 @@ public abstract class CustomEnchantment {
 	}
 	
 	//Stuff for detection
+	//Override this
 	
 	public void onDamage(EntityDamageByEntityEvent event, int level) {
 		

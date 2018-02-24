@@ -39,10 +39,4 @@ public class Util {
 			default: return 0;
 		}
 	}
-	
-	
-	//TODO
-	public static Map<CustomEnchantment, Integer> getEnchantments(ItemStack item) {
-		return null;
-	}
 }
