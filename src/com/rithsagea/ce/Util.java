@@ -1,11 +1,17 @@
 package com.rithsagea.ce;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
+import org.bukkit.inventory.ItemStack;
+
+import com.rithsagea.ce.datatypes.CustomEnchantment;
 
 public class Util {
+	
+	private final static String CUSTOMENCHANTMENTPATTERN = "§[a-f 0-9]\\w+ [IVXLCDM]+";
 	
 	public static String toNumerals(int n) {
 		switch(n) {
@@ -46,5 +52,38 @@ public class Util {
 			values.add(map.get(key));
 		}
 		return values;
+	}
+	//REGEX THING HERE
+	/*
+	public static Map<CustomEnchantment, Integer> getEnchantments(ItemStack item) {
+		CustomEnchantment[] enchants = (CustomEnchantment[]) Util.getValues(CustomEnchantments.getEnchants()).toArray();
+		List<String> lore = item.getItemMeta().getLore();
+		
+		Map<CustomEnchantment, Integer> res = new HashMap<CustomEnchantment, Integer>();
+		
+		for(CustomEnchantment enchant : enchants) {
+			for(int x = 0; x < enchant.getMaxLevel(); x++) {
+				if(lore.contains(enchant.getRarity().getColor() + enchant.getName() + " " + Util.toNumerals(x)))
+					res.put(enchant, x);
+			}
+		}
+		return res;
+	}
+	*/
+	
+	public static Map<CustomEnchantment, Integer> getEnchantments(ItemStack item) {
+		String[] lore = (String[]) item.getItemMeta().getLore().toArray();
+		Map<CustomEnchantment, Integer> res = new HashMap<CustomEnchantment, Integer>();
+		for(String s : lore) {
+			if(s.matches(CUSTOMENCHANTMENTPATTERN)) {
+				/*
+				 * Some thing to remove the §[a-f 0-9] and roman numerals (store them somewhere else)
+				 * store numeral in variable 'level'
+				 * store key in variable 'key'
+				 * res.put(CustomEnchantments.getEnchant(key), level)
+				 */
+			}
+		}
+		return res;
 	}
 }
